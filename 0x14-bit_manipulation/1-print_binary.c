@@ -1,14 +1,22 @@
 #include "main.h"
-int get_bit(unsigned long int n, unsigned int index)
+void print_binary(unsigned long int n)
 {
-	int val;
+	int i, count = 0;
+	unsigned long int current;
 
-	if (index > 63)
-		return (-1);
+	for (i = 63; i >= 0; i--)
+	{
+		current = n >> i;
 
-	val = (n >> index) & 1;
-
-	return (val);
+		if (current & 1)
+		{
+			_putchar('1');
+			count++;
+		}
+		else if (count)
+			_putchar('0');
+	}
+	if (!count)
+		_putchar('0');
 }
-
 
